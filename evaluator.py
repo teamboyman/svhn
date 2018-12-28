@@ -1,7 +1,7 @@
 import tensorflow as tf
 
-from inputs import Inputs
-from model import Model
+from svhn.inputs import Inputs
+from svhn.model import Model
 
 
 class Evaluator(object):
