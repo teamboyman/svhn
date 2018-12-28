@@ -8,7 +8,7 @@ from svhn.inputs import Inputs
 from svhn.model import Model
 from svhn.meta import Meta
 from svhn.evaluator import Evaluator
-
+import cloudstorage as gcs
 # tf.app.flags.DEFINE_string(
 #     'data_dir', './data', 'Directory to read TFRecords files')
 # tf.app.flags.DEFINE_string(
@@ -261,7 +261,10 @@ def main(unused_argv):
     }
 
     meta = Meta()
-    meta.load(path_to_tfrecords_meta_file)
+    gcs_file = gcs.open(filename)
+    contents = gcs_file.read()
+    gcs_file.close()
+    meta.load(contents)
     num_train_examples = meta.num_train_examples
     num_val_examples = meta.num_val_examples
 
