@@ -4,10 +4,10 @@ from datetime import datetime
 import time
 
 import tensorflow as tf
-from inputs import Inputs
-from model import Model
-from meta import Meta
-from evaluator import Evaluator
+from svhn.inputs import Inputs
+from svhn.model import Model
+from svhn.meta import Meta
+from svhn.evaluator import Evaluator
 
 # tf.app.flags.DEFINE_string(
 #     'data_dir', './data', 'Directory to read TFRecords files')
