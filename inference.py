@@ -4,8 +4,8 @@ import math
 import numpy as np
 from PIL import Image
 
-from svhn.digits_inference import DigitsInference
-from svhn.inference_wrapper import InferenceWrapper
+from digits_inference import DigitsInference
+from inference_wrapper import InferenceWrapper
 
 
 class Inference(object):
