@@ -10,7 +10,7 @@ class Evaluator(object):
         self.summary_writer = tf.summary.FileWriter(path_to_eval_log_dir)
 
     def evaluate(self, path_to_checkpoint, path_to_tfrecords_file, num_examples, global_step):
-        batch_size = 32
+        batch_size = 128
         num_batches = int(num_examples / batch_size)
 
         with tf.Graph().as_default():
@@ -18,8 +18,8 @@ class Evaluator(object):
                                batch_size=batch_size,
                                shuffle=False,
                                min_queue_examples=5000,
-                               num_preprocess_threads=4,
-                               num_reader_threads=1)
+                               num_preprocess_threads=16,
+                               num_reader_threads=8)
             images, input_seqs, target_seqs, mask = input_ops.build_batch()
 
             mymodel = Model(vocab_size=39,
