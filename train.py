@@ -36,12 +36,12 @@ def _train(path_to_train_tfrecords_file, num_train_examples,
 
     with tf.Graph().as_default():
         input_ops = Inputs(path_to_tfrecords_file=path_to_train_tfrecords_file,
-                           batch_size=32,
+                           batch_size=128,
                            shuffle=True,
                            # int(0.4 * num_train_examples)
                            min_queue_examples=5000,
-                           num_preprocess_threads=4,
-                           num_reader_threads=1)
+                           num_preprocess_threads=16,
+                           num_reader_threads=16)
         images, input_seqs, target_seqs, mask = input_ops.build_batch()
 
         mymodel = Model(vocab_size=39,
