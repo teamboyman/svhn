@@ -41,7 +41,7 @@ def _train(path_to_train_tfrecords_file, num_train_examples,
                            # int(0.4 * num_train_examples)
                            min_queue_examples=5000,
                            num_preprocess_threads=16,
-                           num_reader_threads=16)
+                           num_reader_threads=8)
         images, input_seqs, target_seqs, mask = input_ops.build_batch()
 
         mymodel = Model(vocab_size=39,
