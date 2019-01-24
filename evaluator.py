@@ -18,8 +18,8 @@ class Evaluator(object):
                                batch_size=batch_size,
                                shuffle=False,
                                min_queue_examples=5000,
-                               num_preprocess_threads=16,
-                               num_reader_threads=8)
+                               num_preprocess_threads=8,
+                               num_reader_threads=4)
             images, input_seqs, target_seqs, mask = input_ops.build_batch()
 
             mymodel = Model(vocab_size=39,
