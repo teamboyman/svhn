@@ -8,8 +8,8 @@ class Inputs(object):
                  batch_size=32,
                  shuffle=True,
                  min_queue_examples=5000,
-                 num_preprocess_threads=4,
-                 num_reader_threads=1):
+                 num_preprocess_threads=8,
+                 num_reader_threads=4):
 
         super(Inputs, self).__init__()
 
